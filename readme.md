@@ -26,7 +26,7 @@ Debido a restricciones de tiempo, no pude implementar algunas de las siguientes 
 
 - **Manejo de excepciones**: No implementé un manejo de excepciones robusto en todos los casos.
 - **Nombres de clases y variables**: Algunos nombres de clases, métodos y variables podrían no ser tan descriptivos o coherentes como en una implementación final.
-- **Tests**: No pude implementar todos los tests necesarios para asegurar la estabilidad del sistema.
+- **Tests**: Se incluyeron tests pero no en todas las capas.
 
 A pesar de estas limitaciones, el desafío fue muy interesante, y aunque no era extremadamente complejo, la parte más desafiante fue pensar en la arquitectura adecuada para asegurar que el sistema sea escalable y limpio.
 
