@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ms-company
+  datasource:
+    url: jdbc:mysql://localhost:3306/company
+    username: root
+    password: { password }.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+server:
+  servlet:
+    context-path: /ms-company/v1
+  port: 8080
+http-client:
+  ms-transaction:
+    base-url: "http://localhost:8081/ms-transaction/"
