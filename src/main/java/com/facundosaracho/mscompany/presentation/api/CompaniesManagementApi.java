@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface CompaniesManagementApi {
+
+    //todo document openapi
     @PostMapping("register")
     ResponseEntity<RegisterCompanyRequestDto> registerCompany(RegisterCompanyRequestDto companyDto);
 
