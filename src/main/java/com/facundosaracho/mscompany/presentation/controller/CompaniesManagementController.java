@@ -5,6 +5,7 @@ import com.facundosaracho.mscompany.presentation.api.CompaniesManagementApi;
 import com.facundosaracho.mscompany.presentation.dto.CompanyDto;
 import com.facundosaracho.mscompany.presentation.dto.RegisterCompanyRequestDto;
 import com.facundosaracho.mscompany.presentation.mapper.CompanyMapper;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+@Slf4j
 @RestController
 @RequiredArgsConstructor
-@Slf4j
 public class CompaniesManagementController implements CompaniesManagementApi {
 
     private final CompaniesService companiesService;
+
     @Override
     @PostMapping("register")
     public ResponseEntity<RegisterCompanyRequestDto> registerCompany(@Valid @RequestBody RegisterCompanyRequestDto companyDto) {
@@ -41,7 +44,7 @@ public class CompaniesManagementController implements CompaniesManagementApi {
     }
 
     @Override
-    @GetMapping("last-registrations")
+    @GetMapping("lasts-registrations")
     public ResponseEntity<List<CompanyDto>> lastRegisteredCompanies(@RequestParam(value = "filter_date", required = false) LocalDateTime filterDate) {
         log.info("<<<< Start getting last registered companies >>>>");
         List<CompanyDto> response = companiesService.lastRegisteredCompanies(filterDate)
