@@ -20,6 +20,6 @@ server:
   port: 8080
 http-client:
   ms-transaction:
-    base-url: "http://localhost:8081/ms-transaction/"
+    base-url: "http://localhost:8081/ms-transaction/v1/"
 springdoc:
   override-with-generic-response: false

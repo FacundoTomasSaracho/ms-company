@@ -15,10 +15,10 @@ public class SwaggerConfiguration {
                 .description(
                         "Este microservicio permite manejar un CRUD de todo lo referido a clientes B2B (companies)")
                 .version("1.0.0")
-                .contact(LinkedIn());
+                .contact(linkedIn());
     }
 
-    private Contact LinkedIn() {
+    private Contact linkedIn() {
         return new Contact().name("LinkedIn").url("https://www.linkedin.com/in/facundo-tomas-saracho/");
     }
 

@@ -1,4 +1,7 @@
 package com.facundosaracho.mscompany.presentation.exception;
 
-public record ErrorDto(Integer code, String message) {
+import io.swagger.v3.oas.annotations.media.Schema;
+
+public record ErrorDto(@Schema(example = "500", description = "Http status code") Integer code,
+                       @Schema(example = "INTERNAL_SERVER_ERROR", examples = "Http error message") String message) {
 }
