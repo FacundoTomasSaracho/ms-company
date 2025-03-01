@@ -72,7 +72,7 @@ public interface CompaniesManagementApi {
                     )
             }
     )
-    @GetMapping("last-transactions")
+    @GetMapping("lasts-transactions")
     ResponseEntity<List<Long>> getLastTransactions(LocalDateTime filterDate);
 
     @Operation(

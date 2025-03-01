@@ -18,9 +18,8 @@ public interface CompanyMapper {
 
     CompanyDto companyDtoToCompany(Company company);
 
-    CompanyEntity toEntity(Company Company);
+    CompanyEntity toEntity(Company company);
 
     Company toModel(CompanyEntity companyEntity);
 
-    CompanyDto fromModelToLastRegisteredCompaniesDto(Company company);
 }

@@ -16,7 +16,7 @@ spring:
         format_sql: true
 server:
   servlet:
-    context-path: /ms-company/v1
+    context-path: /ms-company/
   port: 8080
 http-client:
   ms-transaction:
