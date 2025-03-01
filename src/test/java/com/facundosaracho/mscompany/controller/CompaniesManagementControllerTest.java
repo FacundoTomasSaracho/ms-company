@@ -2,7 +2,7 @@ package com.facundosaracho.mscompany.controller;
 
 import com.facundosaracho.mscompany.business.model.Company;
 import com.facundosaracho.mscompany.business.service.CompaniesService;
-import com.facundosaracho.mscompany.presentation.controller.CompaniesManagementController;
+import com.facundosaracho.mscompany.presentation.controller.CompaniesController;
 import com.facundosaracho.mscompany.presentation.dto.RegisterCompanyRequestDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +22,7 @@ public class CompaniesManagementControllerTest {
 
 
     @InjectMocks
-    private CompaniesManagementController controller;
+    private CompaniesController controller;
 
     @Mock
     private CompaniesService companiesService;

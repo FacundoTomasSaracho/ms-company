@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class CompaniesManagementController implements CompaniesManagementApi {
+public class CompaniesController implements CompaniesManagementApi {
 
     private final CompaniesService companiesService;
 
