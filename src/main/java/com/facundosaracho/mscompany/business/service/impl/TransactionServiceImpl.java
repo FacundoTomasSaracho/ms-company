@@ -5,6 +5,7 @@ import com.facundosaracho.mscompany.exception.BusinessException;
 import com.facundosaracho.mscompany.exception.ExceptionCode;
 import com.facundosaracho.mscompany.proxy.transaction.TransactionClient;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public List<Long> getLastCompaniesThatMadeTransactions(LocalDateTime filterDate) {
         List<Long> companiesIds = transactionClient.getLastCompaniesThatMadeTransactions(filterDate);
-        if (companiesIds.isEmpty()) throw new BusinessException(ExceptionCode.NO_COMPANIES_WERE_FOUND);
+        if (companiesIds.isEmpty()) throw new BusinessException(ExceptionCode.NO_COMPANIES_WERE_FOUND, HttpStatus.NOT_FOUND);
         return companiesIds;
     }
 }

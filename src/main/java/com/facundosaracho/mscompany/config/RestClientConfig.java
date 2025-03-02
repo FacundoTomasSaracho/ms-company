@@ -1,11 +1,12 @@
 package com.facundosaracho.mscompany.config;
 
-import com.facundosaracho.mscompany.exception.RestException;
+import com.facundosaracho.mscompany.exception.RetrofitException;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -23,7 +24,6 @@ public class RestClientConfig {
     @Value("${http-client.ms-transaction.base-url}")
     private String baseUrl;
 
-
     @Bean
     Retrofit retrofitConfigurationTransactionApi() {
         return new Retrofit.Builder().baseUrl(baseUrl).client(new OkHttpClient())
@@ -39,17 +39,17 @@ public class RestClientConfig {
         if (responseResponse == null || !responseResponse.isSuccessful()) {
             log.error("Exception: {}", Optional.of(responseResponse.errorBody().toString())
                     .orElse("No extra information."));
-            throw new RestException(RETROFIT_EXCEPTION);
+            throw new RetrofitException(RETROFIT_EXCEPTION, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseResponse;
     }
 
-    public static <R> Response<R> checkCall(Call<R> call) {
+    public static <T> Response<T> checkCall(Call<T> call) {
         try {
             return call.execute();
         } catch (Exception e) {
             log.error("ERROR :{} ", e.getMessage());
-            throw new RestException(RETROFIT_EXCEPTION);
+            throw new RetrofitException(RETROFIT_EXCEPTION, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.facundosaracho.mscompany.presentation.exception;
 
 import com.facundosaracho.mscompany.exception.BusinessException;
 import com.facundosaracho.mscompany.exception.RestException;
+import com.facundosaracho.mscompany.exception.RetrofitException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,18 +23,18 @@ public class RestExceptionHandler {
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(RestException.class)
-    public ResponseEntity<ErrorDto> handleException(RestException restException) {
-        log.error("Exception: {} ", restException);
-        return new ResponseEntity<>(new ErrorDto(restException.getCode(), restException.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
-
-
+    @ExceptionHandler(RetrofitException.class)
+    public ResponseEntity<ErrorDto> handleException(RestException restException, HttpStatus httpStatus) {
+        return formResponse(restException, httpStatus);
     }
 
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ErrorDto> handleException(BusinessException businessException) {
-        log.error("Exception: {} ", businessException);
-        return new ResponseEntity<>(new ErrorDto(businessException.getCode(), businessException.getMessage()), HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorDto> handleException(BusinessException businessException, HttpStatus httpStatus) {
+        return formResponse(businessException, httpStatus);
+    }
+
+    private ResponseEntity<ErrorDto> formResponse(RestException e, HttpStatus httpStatus) {
+        return new ResponseEntity<>(new ErrorDto(e.getCode(), e.getMessage()), httpStatus);
     }
 
 }

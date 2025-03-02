@@ -2,8 +2,8 @@ package com.facundosaracho.mscompany.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class BusinessException extends RestException{
-    public BusinessException(ExceptionCode exceptionCode, HttpStatus httpStatus) {
+public class RetrofitException extends RestException{
+    public RetrofitException(ExceptionCode exceptionCode, HttpStatus httpStatus) {
         super(exceptionCode, httpStatus);
     }
 }

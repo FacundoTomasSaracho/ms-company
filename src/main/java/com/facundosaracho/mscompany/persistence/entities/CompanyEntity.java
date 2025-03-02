@@ -1,9 +1,7 @@
 package com.facundosaracho.mscompany.persistence.entities;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Comment;
 
@@ -11,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "company")
 public class CompanyEntity {
@@ -28,12 +25,12 @@ public class CompanyEntity {
     @Comment("Razón social de la empresa")
     private String legalName;
 
-    @Column(name = "registered_at", nullable = false, updatable = false )
+    @Column(name = "registered_at", nullable = false, updatable = false)
     @Comment("Fecha de registro de la empresa.")
     private LocalDateTime registeredAt;
 
     @PrePersist
-    private void prePersist(){
+    private void prePersist() {
         registeredAt = LocalDateTime.now();
     }
 }
