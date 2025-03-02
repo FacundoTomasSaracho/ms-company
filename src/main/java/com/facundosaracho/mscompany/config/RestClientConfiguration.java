@@ -1,6 +1,7 @@
 package com.facundosaracho.mscompany.config;
 
 import com.facundosaracho.mscompany.exception.RetrofitException;
+import com.facundosaracho.mscompany.proxy.transaction.TransactionApi;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +20,7 @@ import static com.facundosaracho.mscompany.exception.ExceptionCode.RETROFIT_EXCE
 
 @Configuration
 @Slf4j
-public class RestClientConfig {
+public class RestClientConfiguration {
 
     @Value("${http-client.ms-transaction.base-url}")
     private String baseUrl;
@@ -31,8 +32,8 @@ public class RestClientConfig {
     }
 
     @Bean
-    public TransactionApiRetrofitConfig config(Retrofit retrofit) {
-        return retrofit.create(TransactionApiRetrofitConfig.class);
+    public TransactionApi config(Retrofit retrofit) {
+        return retrofit.create(TransactionApi.class);
     }
 
     public static Response<List<Long>> validateResponse(Response<List<Long>> responseResponse) {

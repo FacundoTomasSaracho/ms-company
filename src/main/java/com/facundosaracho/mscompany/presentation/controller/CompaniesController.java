@@ -37,7 +37,8 @@ public class CompaniesController implements CompaniesManagementApi {
     public ResponseEntity<List<Long>> getLastTransactions(@RequestParam(value = "filter_date", required = false) LocalDateTime filterDate) {
         log.info("Started to get last companies that made transactions in the last month. FilterDate: {}", filterDate);
         List<Long> response = companiesService.getLastTransactions(filterDate)
-                .stream().toList();
+                .stream()
+                .toList();
         log.info("Companies that made transactions in last mound were found successfully. End of method");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
