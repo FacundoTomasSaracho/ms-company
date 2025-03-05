@@ -1,6 +1,6 @@
-# IT Patagonia Technical Challenge
+# Challenge Técnico
 
-Este repositorio contiene dos microservicios que forman parte de un desafío técnico para IT Patagonia. Los dos microservicios están diseñados para cumplir con la tarea de manejar información de empresas y transacciones financieras de manera separada, permitiendo así una arquitectura limpia y escalable.
+Este repositorio contiene dos microservicios que forman parte de un desafío técnico para poner en práctica mis conocimientos y buenas prácticas. Los dos microservicios están diseñados para cumplir con la tarea de manejar información de empresas y transacciones financieras de manera separada, permitiendo así una arquitectura limpia y escalable. Fue hecho en aproximadamente 4 horas pero una vez finalizado, lo fuí modificando en el tiempo.
 
 ## Arquitectura
 
